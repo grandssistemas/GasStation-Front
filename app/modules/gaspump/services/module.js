@@ -1,0 +1,1 @@
+angular.module('app.gaspump.services',['gumga.core','api.location']);
