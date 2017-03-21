@@ -1,5 +1,23 @@
 angular.module('app.gastank.controllers')
-    .controller('GasTankFormController', [
-        function GasTankFormController() {
+    .controller('GasTankFormController', ['$state', '$scope', 'entity', 'GasTankService', 'ProductService',
+        function GasTankFormController($state, $scope, entity, GasTankService, ProductService) {
 
-        }])
+            $scope.entity = angular.copy(entity.data);
+
+            $scope.searchProduct = function(param){
+                return ProductService.searchOnlyGasProducts(param).then(function(response){
+                    return response.data.values;
+                })
+            }
+
+            $scope.blockBtnSave = function(entity){
+                return !entity.name || !entity.number || !entity.product;
+            }
+
+            $scope.update = function(entity){
+                GasTankService.update(entity).then(function(){
+                    $state.go('gastank.list')
+                })
+
+            }
+        }]);

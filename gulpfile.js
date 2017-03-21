@@ -22,7 +22,7 @@ gulp.task('js', ['templates'], function () {
     ])
         .pipe(concat('gas.min.js'))
         .pipe(ngAnnotate())
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest('.'))
 });
 

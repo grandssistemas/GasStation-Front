@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-content">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <button type="button" ui-sref="gastank.insert" grands-button="new"></button>
+                                <button type="button" ng-click="gastank.methods.delete(selectedValues)" grands-button="delete"
+                                        ng-disabled="selectedValues.length == 0"></button>
+                            </div>
+                            <div class="col-md-7">
+                                <gumga-query search="gastank.methods.search(field, param)" advanced-search="gastank.methods.advancedSearch(param)">
+                                    <search-field field="name" label="{{'name'|gumgaTranslate:'gastank'}}"
+                                                  select="true"></search-field>
+                                    <advanced-search-field type="string" label="{{'name'|gumgaTranslate:'gastank'}}" field="name"></advanced-search-field>
+                                </gumga-query>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <gumga-list data="gastank.data"
+                                    configuration="conf"
+                                    class="table-bordered"></gumga-list>
+                    </div>
+                    <div class="col-md-12">
+                        <ul uib-pagination ng-model="gastank.page"
+                            items-per-page="gastank.pageSize"
+                            total-items="gastank.count"
+                            ng-change="gastank.methods.get(gastank.page)"
+                            previous-text="<< Anterior"
+                            next-Text="Próximo >>"
+                            first-text="«"
+                            last-text="»">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,24 +6,25 @@ angular.module('gas.core', [
         'app.gastank',
         'gumga.core',
         'grands.components',
-        'product.core'
+        'product.core',
+        'gas.templates'
     ]).config(['$stateProvider', function ($stateProvider) {
 
         $stateProvider
             .state('gaspump',{
                 data: { id : 1},
                 url: '/gaspump',
-                templateurl : 'base.html'
+                templateUrl : 'base.html'
             })
             .state('gastank',{
                 data: { id : 1},
                 url: '/gastank',
-                templateurl : 'base.html'
+                templateUrl : 'base.html'
             })
             .state('gasnozzle',{
                 data: { id : 1},
                 url: '/gasnozzle',
-                templateurl : 'base.html'
+                templateUrl : 'base.html'
             })
 
 

@@ -1,0 +1,59 @@
+<form name="tankform" novalidate gumga-form>
+    <div class="row">
+        <div class="col-lg-12 m-t-lg">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-4 m-t-lg">
+
+                            <gmd-input>
+                                <input type="text" class="form-control gmd" ng-model="entity.name" id="name" required>
+                                <span class="bar"></span>
+                                <label for="name" class="control-label">Nome do Tanque</label>
+                            </gmd-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <gmd-input>
+                                <input type="text" class="form-control gmd" ng-model="entity.number" id="number"
+                                       required>
+                                <span class="bar"></span>
+                                <label for="number" class="control-label">Número do Tanque</label>
+                            </gmd-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label gumga-translate-tag="gastank.product"> </label>
+                            <strong class="text-danger">*</strong>
+                            <gumga-many-to-one
+                                    value="entity.product"
+                                    search-method="searchProduct(param)"
+                                    field="name"
+                                    authorize-add="false"
+                                    async="true"
+                                    display-info="false">
+                                <match>
+                                    <div>{{match.model.name}}</div>
+                                </match>
+                            </gumga-many-to-one>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-9 pull-right">
+                    <button type="button" grands-button="return" ui-sref="gastank.list" ng-show="entity.id"></button>
+                    <button type="button" grands-button="save" ng-click="update(entity)"
+                            ng-disabled="blockBtnSave(entity)"></button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</form>
