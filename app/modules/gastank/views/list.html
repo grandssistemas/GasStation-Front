@@ -12,9 +12,12 @@
                             </div>
                             <div class="col-md-7">
                                 <gumga-query search="gastank.methods.search(field, param)" advanced-search="gastank.methods.advancedSearch(param)">
-                                    <search-field field="name" label="{{'name'|gumgaTranslate:'gastank'}}"
-                                                  select="true"></search-field>
-                                    <advanced-search-field type="string" label="{{'name'|gumgaTranslate:'gastank'}}" field="name"></advanced-search-field>
+                                    <search-field field="name" label="Nome" select="true"></search-field>
+                                    <search-field field="number" label="Número" ></search-field>
+                                    <search-field field="product.name" label="Produto" ></search-field>
+                                    <advanced-search-field type="string" label="Nome" field="name"></advanced-search-field>
+                                    <advanced-search-field type="string" label="Número" field="number"></advanced-search-field>
+                                    <advanced-search-field type="string" label="Produto" field="product.name"></advanced-search-field>
                                 </gumga-query>
                             </div>
                         </div>

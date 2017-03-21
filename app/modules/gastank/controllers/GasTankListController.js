@@ -35,6 +35,6 @@ angular.module('app.gastank.controllers')
             };
 
             $scope.gastank.on('deleteSuccess', function(){
-                $scope.product.execute('get');
+                $scope.gastank.execute('get');
             })
         }])
