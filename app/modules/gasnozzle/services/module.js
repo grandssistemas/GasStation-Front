@@ -1,0 +1,1 @@
+angular.module('app.gasnozzle.services',['gumga.core','api.location']);

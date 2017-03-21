@@ -1,6 +1,9 @@
 angular.module('gas.core', [
         'ui.router',
         'ngSanitize',
+        'app.gasnozzle',
+        'app.gaspump',
+        'app.gastank',
         'gumga.core',
         'grands.components',
         'product.core'
