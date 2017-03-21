@@ -1,0 +1,68 @@
+<form name="tankform" novalidate gumga-form>
+    <div class="row">
+        <div class="col-lg-12 m-t-lg">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-4 m-t-lg">
+
+                            <gmd-input>
+                                <input type="text" class="form-control gmd" ng-model="entity.number" id="name" required
+                                       autocomplete="off">
+                                <span class="bar"></span>
+                                <label for="name" class="control-label">Número do Bico</label>
+                            </gmd-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label gumga-translate-tag="gasnozzle.tankname"> </label>
+                            <strong class="text-danger">*</strong>
+                            <gumga-many-to-one
+                                    value="entity.tank"
+                                    search-method="searchTank(param)"
+                                    field="name"
+                                    authorize-add="false"
+                                    async="true"
+                                    display-info="false">
+                                <match>
+                                    <div>{{match.model.name}}</div>
+                                </match>
+                            </gumga-many-to-one>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label gumga-translate-tag="gasnozzle.pumpname"> </label>
+                            <strong class="text-danger">*</strong>
+                            <gumga-many-to-one
+                                    value="entity.pump"
+                                    search-method="searchPump(param)"
+                                    field="name"
+                                    authorize-add="false"
+                                    async="true"
+                                    display-info="false">
+                                <match>
+                                    <div>{{match.model.name}}</div>
+                                </match>
+                            </gumga-many-to-one>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-9 pull-right">
+                    <button type="button" grands-button="return" ui-sref="gasnozzle.list"></button>
+                    <button type="button" grands-button="save" ng-click="update(entity)"
+                            ng-disabled="blockBtnSave(entity)"></button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</form>
