@@ -23,7 +23,7 @@ angular.module('app.gastank.controllers')
                         name: 'product',
                         size: 'col-md-2',
                         title: '<strong gumga-translate-tag="gastank.product">Name</strong>',
-                        content: '<div> {{$value.product.name}} </div>'
+                        content: '<div> {{$value.products[0].name}} </div>'
                     },
                     {
                         name: 'button',

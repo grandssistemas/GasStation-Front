@@ -11,10 +11,11 @@ angular.module('app.gastank.controllers')
             }
 
             $scope.blockBtnSave = function(entity){
-                return !entity.name || !entity.number || !entity.product;
+                return !entity.name || !entity.number || !$scope.product;
             }
 
             $scope.update = function(entity){
+                entity.products = [$scope.product]
                 GasTankService.update(entity).then(function(){
                     $state.go('gastank.list')
                 })

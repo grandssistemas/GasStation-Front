@@ -1,6 +1,6 @@
 {
   "name": "gas-front",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "license": "CC BY-ND 4.0",
   "ignore": [
     "**/.*",
