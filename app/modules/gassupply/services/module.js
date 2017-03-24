@@ -1,0 +1,1 @@
+angular.module('app.gassupply.services',['gumga.core','api.location'])
