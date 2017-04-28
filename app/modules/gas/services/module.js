@@ -1,0 +1,1 @@
+angular.module('app.gastank.services',['gumga.core','api.location'])
