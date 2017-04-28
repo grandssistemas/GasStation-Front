@@ -1,6 +1,6 @@
-angular.module('app.gastank.services')
-    .service('GasTankService', ['GumgaRest', 'apiLocation', function (GumgaRest, apiLocation) {
-        var service = new GumgaRest(apiLocation + '/api/gastank');
+angular.module('app.gas.services')
+    .service('GasService', ['GumgaRest', 'apiLocation', function (GumgaRest, apiLocation) {
+        var service = new GumgaRest(apiLocation + '/api/gas');
 
 
         return service;

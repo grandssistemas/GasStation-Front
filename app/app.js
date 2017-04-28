@@ -4,6 +4,7 @@ angular.module('gas.core', [
     'app.gasnozzle',
     'app.gaspump',
     'app.gastank',
+    'app.gas',
     'gumga.core',
     'grands.components',
     'product.core',

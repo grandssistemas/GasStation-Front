@@ -1,11 +1,11 @@
 angular.module('app.gastank.controllers')
-    .controller('GasTankFormController', ['$state', '$scope', 'entity', 'GasTankService', 'ProductService',
-        function GasTankFormController($state, $scope, entity, GasTankService, ProductService) {
+    .controller('GasTankFormController', ['$state', '$scope', 'entity', 'GasTankService', 'GasService',
+        function GasTankFormController($state, $scope, entity, GasTankService, GasService) {
 
             $scope.entity = angular.copy(entity.data);
 
             $scope.searchProduct = function(param){
-                return ProductService.searchOnlyGasProducts(param).then(function(response){
+                return GasService.searchOnlyGasProducts(param).then(function(response){
                     return response.data.values;
                 })
             };
