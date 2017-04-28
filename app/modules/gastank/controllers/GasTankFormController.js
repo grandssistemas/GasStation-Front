@@ -8,16 +8,16 @@ angular.module('app.gastank.controllers')
                 return ProductService.searchOnlyGasProducts(param).then(function(response){
                     return response.data.values;
                 })
-            }
+            };
 
             $scope.blockBtnSave = function(entity){
                 return !entity.name || !entity.number || !$scope.product;
-            }
+            };
 
             $scope.update = function(entity){
-                entity.products = [$scope.product]
+                entity.products = [$scope.product];
                 GasTankService.update(entity).then(function(){
-                    $state.go('gastank.list')
+                    $state.go('gastank.list');
                 })
 
             }
