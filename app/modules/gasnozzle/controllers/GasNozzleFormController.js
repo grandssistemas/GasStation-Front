@@ -28,7 +28,7 @@ angular.module('app.gasnozzle.controllers')
             }
 
             $scope.searchProduct = function(param){
-                return GasService.searchOnlyGasProducts(param).then(function(response){
+                return GasService.getAdvancedSearch('obj.name like \'%' + param + '%\'').then(function(response){
                     return response.data.values;
                 })
             }
