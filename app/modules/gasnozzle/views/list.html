@@ -25,18 +25,13 @@
                     <div class="col-md-12">
                         <gumga-list data="gasnozzle.data"
                                     configuration="conf"
-                                    class="table-bordered"></gumga-list>
-                    </div>
-                    <div class="col-md-12">
-                        <ul uib-pagination ng-model="gasnozzle.page"
-                            items-per-page="gasnozzle.pageSize"
-                            total-items="gasnozzle.count"
-                            ng-change="gasnozzle.methods.get(gasnozzle.page)"
-                            previous-text="<< Anterior"
-                            next-Text="Próximo >>"
-                            first-text="«"
-                            last-text="»">
-                        </ul>
+                                    class="table-striped"
+                                    sort="gasnozzle.methods.sort(field, dir)"
+                                    page-size="gasnozzle.pageSize"
+                                    count="gasnozzle.count"
+                                    page-model="gasnozzle.page"
+                                    max-height="400px"
+                                    on-page-change="gasnozzle.methods.get(page, pageSize)"></gumga-list>
                     </div>
                 </div>
             </div>

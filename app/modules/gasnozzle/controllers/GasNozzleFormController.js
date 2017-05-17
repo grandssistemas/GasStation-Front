@@ -1,6 +1,6 @@
 angular.module('app.gasnozzle.controllers')
-    .controller('GasNozzleFormController', ['$state', '$scope', 'entity', 'GasNozzleService', 'GasTankService', 'GasPumpService', 'ProductService',
-        function GasNozzleFormController($state, $scope, entity, GasNozzleService, GasTankService, GasPumpService,ProductService) {
+    .controller('GasNozzleFormController', ['$state', '$scope', 'entity', 'GasNozzleService', 'GasTankService', 'GasPumpService', 'GasService',
+        function GasNozzleFormController($state, $scope, entity, GasNozzleService, GasTankService, GasPumpService,GasService) {
 
             $scope.entity = angular.copy(entity.data);
 
@@ -28,7 +28,7 @@ angular.module('app.gasnozzle.controllers')
             }
 
             $scope.searchProduct = function(param){
-                return ProductService.searchOnlyGasProducts(param).then(function(response){
+                return GasService.getAdvancedSearch('obj.name like \'%' + param + '%\'').then(function(response){
                     return response.data.values;
                 })
             }

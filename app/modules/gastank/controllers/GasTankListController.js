@@ -8,10 +8,14 @@ angular.module('app.gastank.controllers')
             $scope.conf = {
                 columns: 'name,number,product,button',
                 selection: 'multi',
+                materialTheme: true,
+                itemsPerPage: [5, 10, 25, 50, 100],
+                title:'Listagem de Tanques',
                 columnsConfig: [
                     {
                         name: 'name',
                         size: 'col-md-7',
+                        sortField: 'name',
                         title: '<strong gumga-translate-tag="gastank.name">Name</strong>',
                         content: '<div> {{$value.name}} </div>'
                     }, {

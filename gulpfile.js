@@ -22,7 +22,26 @@ gulp.task('js', ['templates'], function () {
     ])
         .pipe(concat('gas.min.js'))
         .pipe(ngAnnotate())
-        // .pipe(uglify())
+        .pipe(uglify())
+        .pipe(gulp.dest('.'))
+});
+
+gulp.task('js-dev', ['templates'], function () {
+    gulp.src([
+        'templates.min.js',
+        'app/**/services/module.js',
+        'app/**/services/**/*.js',
+        'app/**/directives/*/**/module.js',
+        'app/**/directives/*/**/*.js',
+        'app/**/directives/module.js',
+        'app/**/controllers/module.js',
+        'app/**/controllers/**/*.js',
+        'app/**/module.js',
+        'app/**/*.js',
+        'app/app.js'
+    ])
+        .pipe(concat('gas.min.js'))
+        .pipe(ngAnnotate())
         .pipe(gulp.dest('.'))
 });
 
@@ -43,3 +62,4 @@ gulp.task('css', function () {
 });
 
 gulp.task('build', ['templates', 'js', 'css']);
+gulp.task('dev', ['templates', 'js-dev', 'css']);

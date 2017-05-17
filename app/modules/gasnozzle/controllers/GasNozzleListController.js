@@ -8,10 +8,14 @@ angular.module('app.gasnozzle.controllers')
             $scope.conf = {
                 columns: 'name,pump,tank,button',
                 selection: 'multi',
+                materialTheme: true,
+                itemsPerPage: [5, 10, 25, 50, 100],
+                title:'Listagem de bicos',
                 columnsConfig: [
                     {
                         name: 'name',
                         size: 'col-md-7',
+                        sortField: 'number',
                         title: '<strong gumga-translate-tag="gasnozzle.number">Name</strong>',
                         content: '<div> {{$value.number}} </div>'
                     }, {
