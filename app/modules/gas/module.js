@@ -1,1 +1,0 @@
-angular.module('app.gas', ['app.gas.services']);

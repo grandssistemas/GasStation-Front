@@ -3,6 +3,7 @@ angular.module('app.gastank.controllers')
         function GasTankFormController($state, $scope, entity, GasTankService, GasService) {
 
             $scope.entity = angular.copy(entity.data);
+            $scope.product = $scope.entity.products[0];
 
             $scope.searchProduct = function(param){
                 return GasService.getAdvancedSearch('obj.name like \'%' + param + '%\'').then(function(response){
