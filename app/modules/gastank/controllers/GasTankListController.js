@@ -9,6 +9,8 @@ angular.module('app.gastank.controllers')
                 columns: 'name,number,product,button',
                 selection: 'multi',
                 materialTheme: true,
+                activeLineColor: '#cccccc',
+                hoverLineColor: '#f5f5f5',
                 itemsPerPage: [5, 10, 25, 50, 100],
                 title:'Listagem de Tanques',
                 columnsConfig: [

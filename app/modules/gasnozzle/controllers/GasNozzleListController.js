@@ -9,6 +9,8 @@ angular.module('app.gasnozzle.controllers')
                 columns: 'name,pump,tank,button',
                 selection: 'multi',
                 materialTheme: true,
+                activeLineColor: '#cccccc',
+                hoverLineColor: '#f5f5f5',
                 itemsPerPage: [5, 10, 25, 50, 100],
                 title:'Listagem de bicos',
                 columnsConfig: [
