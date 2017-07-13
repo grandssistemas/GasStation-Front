@@ -18,8 +18,8 @@
     "angular-sanitize": "1.4.9",
     "animate.css": "~3.2.6",
     "bootstrap-stylus": "~4.0.4",
-    "grands-components": "https://github.com/grandssistemas/Grands-Components.git",
-    "product-front": "https://github.com/grandssistemas/Product-Front.git"
+    "grands-components": "https://github.com/grandssistemas/Grands-Components.git#develop",
+    "product-front": "https://github.com/grandssistemas/Product-Front.git#develop"
   },
   "resolutions": {
     "angular": "1.5.0"
