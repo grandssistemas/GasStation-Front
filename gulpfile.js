@@ -5,7 +5,7 @@ var ngAnnotate = require('gulp-ng-annotate');
 var ngTemplates = require('gulp-ng-templates');
 var minify = require('gulp-minify-css');
 var rename = require('gulp-rename');
-
+const babel = require('gulp-babel');
 gulp.task('js', ['templates'], function () {
     gulp.src([
         'templates.min.js',
@@ -20,6 +20,7 @@ gulp.task('js', ['templates'], function () {
         'app/**/*.js',
         'app/app.js'
     ])
+        .pipe(babel({presets: ['es2015']}))
         .pipe(concat('gas.min.js'))
         .pipe(ngAnnotate())
         .pipe(uglify())
@@ -40,6 +41,7 @@ gulp.task('js-dev', ['templates'], function () {
         'app/**/*.js',
         'app/app.js'
     ])
+        .pipe(babel({presets: ['es2015']}))
         .pipe(concat('gas.min.js'))
         .pipe(ngAnnotate())
         .pipe(gulp.dest('.'))
