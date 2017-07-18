@@ -2,8 +2,8 @@ angular.module('app.gastank.controllers')
     .controller('GasTankListController', ['$scope', 'GasTankService', 'gumgaController',
         function GasTankListController($scope, GasTankService, gumgaController) {
             gumgaController.createRestMethods($scope, GasTankService, 'gastank');
-            $scope.gastank.execute('reset')
-            $scope.gastank.execute('get')
+            $scope.gastank.execute('reset');
+            $scope.gastank.methods.getLatestOperation();
 
             $scope.conf = {
                 columns: 'name,number,product,button',
@@ -41,6 +41,6 @@ angular.module('app.gastank.controllers')
             };
 
             $scope.gastank.on('deleteSuccess', function(){
-                $scope.gastank.execute('get');
+                $scope.gastank.methods.getLatestOperation();
             })
         }])
