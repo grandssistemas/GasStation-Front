@@ -2,9 +2,8 @@ angular.module('app.gaspump.controllers')
     .controller('GasPumpListController', ['$scope', 'GasPumpService', 'gumgaController',
         function GasPumpListController($scope, GasPumpService, gumgaController) {
             gumgaController.createRestMethods($scope, GasPumpService, 'gaspump');
-            $scope.gaspump.execute('reset')
-            $scope.gaspump.execute('get')
-
+            $scope.gaspump.execute('reset');
+            $scope.gaspump.methods.getLatestOperation();
             $scope.conf = {
                 columns: 'name,number,button',
                 selection: 'multi',
@@ -36,7 +35,7 @@ angular.module('app.gaspump.controllers')
             };
 
             $scope.gaspump.on('deleteSuccess', function(){
-                $scope.gaspump.execute('get');
+                $scope.gaspump.methods.getLatestOperation();
             })
 
         }]);

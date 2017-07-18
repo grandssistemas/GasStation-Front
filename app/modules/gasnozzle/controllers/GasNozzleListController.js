@@ -3,7 +3,7 @@ angular.module('app.gasnozzle.controllers')
         function GasNozzleListController($scope, GasNozzleService, gumgaController) {
             gumgaController.createRestMethods($scope, GasNozzleService, 'gasnozzle');
             $scope.gasnozzle.execute('reset');
-            $scope.gasnozzle.execute('get');
+            $scope.gasnozzle.methods.getLatestOperation();
 
             $scope.conf = {
                 columns: 'name,pump,tank,button',
@@ -41,6 +41,6 @@ angular.module('app.gasnozzle.controllers')
             };
 
             $scope.gasnozzle.on('deleteSuccess', function(){
-                $scope.gasnozzle.execute('get');
+                $scope.gasnozzle.methods.getLatestOperation();
             })
         }]);
