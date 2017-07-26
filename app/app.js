@@ -8,6 +8,7 @@ module.exports = angular.module('gas.core', [
     'app.gaspump',
     'app.gastank',
     'gumga.core',
+    'app.gassupply.services',
     'grands.components',
     'product.core'
 ]).config(['$stateProvider', function ($stateProvider) {
