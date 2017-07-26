@@ -1,5 +1,5 @@
-angular.module('app.gastank.services')
-    .service('GasSupplyService', ['GumgaRest', 'apiLocation', function (GumgaRest, apiLocation) {
+GasSupplyService.$inject = ['GumgaRest', 'apiLocation']
+function GasSupplyService(GumgaRest, apiLocation) {
         var service = new GumgaRest(apiLocation + '/api/gassupply');
 
         service.findAllOpen = function(){
@@ -14,4 +14,5 @@ angular.module('app.gastank.services')
 
         return service;
 
-    }]);
+    }
+    module.exports = GasSupplyService
