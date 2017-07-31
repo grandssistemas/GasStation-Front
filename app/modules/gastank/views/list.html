@@ -35,6 +35,35 @@
                                     max-height="400px"
                                     on-page-change="gastank.methods.get(page, pageSize)"></gumga-list>
                     </div>
+
+                    <gmd-fab force-click="false" fixed opened="selectedValues.length > 0">
+                        <button class="bg-accent gmd-ripple" ui-sref="gastank.insert" ng-if="selectedValues.length == 0">
+                            <span class="material-icons">add</span>
+                        </button>
+                        <button class="bg-accent gmd-ripple" ng-if="selectedValues.length > 0">
+                            <span class="material-icons">menu</span>
+                        </button>
+                        <ul>
+                            <li class="btn-danger"
+                                ng-class="{'gmd-invisible' : selectedValues.length == 0}"
+                                ng-click="gastank.methods.delete(selectedValues)">
+                                <span>Excluir</span>
+                                <i class="material-icons gmd-ripple">delete</i>
+                            </li>
+                            <li class="btn-warning"
+                                ui-sref="gastank.edit({id: selectedValues[0].id})"
+                                ng-class="{'gmd-invisible' : selectedValues.length == 0}">
+                                <span>Editar</span>
+                                <i class="material-icons gmd-ripple">edit</i>
+                            </li>
+                            <li class="btn-primary"
+                                ui-sref="gastank.insert"
+                                ng-class="{'gmd-invisible' : selectedValues.length == 0}">
+                                <span>Novo</span>
+                                <i class="material-icons gmd-ripple">add</i>
+                            </li>
+                        </ul>
+                    </gmd-fab>
                 </div>
             </div>
         </div>

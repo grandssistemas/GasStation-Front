@@ -14,7 +14,8 @@ function GasTankFormController($state, $scope, entity, GasTankService, GasServic
         return !entity.name || !entity.number || !$scope.product;
     };
 
-    $scope.update = function (entity) {
+    $scope.update = function (entity, block) {
+        if (block) return;
         entity.products = [$scope.product];
         GasTankService.update(entity).then(function () {
             $state.go('gastank.list');

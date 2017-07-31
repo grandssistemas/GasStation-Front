@@ -20,7 +20,8 @@ function GasNozzleFormController($state, $scope, entity, GasNozzleService, GasTa
         return !entity.number || !entity.pump || !entity.tank;
     }
 
-    $scope.update = function (entity) {
+    $scope.update = function (entity, block) {
+        if (block) return;
         GasNozzleService.update(entity).then(function () {
             $state.go('gasnozzle.list')
         })

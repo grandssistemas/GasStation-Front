@@ -7,7 +7,8 @@ function GasPumpFormController($state, $scope, entity, GasPumpService) {
         return !entity.name || !entity.number;
     }
 
-    $scope.update = function (entity) {
+    $scope.update = function (entity, block) {
+        if (block) return;
         GasPumpService.update(entity).then(function () {
             $state.go('gaspump.list')
         })
