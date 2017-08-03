@@ -5,12 +5,12 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="row">
-                            <div class="col-md-5">
-                                <button type="button" ui-sref="gasnozzle.insert" grands-button="new"></button>
-                                <button type="button" ng-click="gasnozzle.methods.delete(selectedValues)" grands-button="delete"
-                                        ng-disabled="selectedValues.length == 0"></button>
-                            </div>
-                            <div class="col-md-7">
+                            <!--<div class="col-md-5">-->
+                                <!--<button type="button" ui-sref="gasnozzle.insert" grands-button="new"></button>-->
+                                <!--<button type="button" ng-click="gasnozzle.methods.delete(selectedValues)" grands-button="delete"-->
+                                        <!--ng-disabled="selectedValues.length == 0"></button>-->
+                            <!--</div>-->
+                            <div class="col-md-7 col-md-offset-5">
                                 <gumga-query search="gasnozzle.methods.search(field, param)" advanced-search="gasnozzle.methods.advancedSearch(param)">
                                     <search-field field="name" label="Nome" select="true"></search-field>
                                     <search-field field="number" label="Número" ></search-field>
@@ -29,10 +29,39 @@
                                     sort="gasnozzle.methods.sort(field, dir)"
                                     page-size="gasnozzle.pageSize"
                                     count="gasnozzle.count"
-                                    page-model="gasnozzle.page"
+                                    page-model="page"
                                     max-height="400px"
                                     on-page-change="gasnozzle.methods.get(page, pageSize)"></gumga-list>
                     </div>
+
+                    <gmd-fab force-click="false" fixed opened="selectedValues.length > 0">
+                        <button class="bg-accent gmd-ripple" ui-sref="gasnozzle.insert" ng-if="selectedValues.length == 0">
+                            <span class="material-icons">add</span>
+                        </button>
+                        <button class="bg-accent gmd-ripple" ng-if="selectedValues.length > 0">
+                            <span class="material-icons">menu</span>
+                        </button>
+                        <ul>
+                            <li class="btn-danger"
+                                ng-class="{'gmd-invisible' : selectedValues.length == 0}"
+                                ng-click="gasnozzle.methods.delete(selectedValues)">
+                                <span>Excluir</span>
+                                <i class="material-icons gmd-ripple">delete</i>
+                            </li>
+                            <li class="btn-warning"
+                                ui-sref="gasnozzle.edit({id: selectedValues[0].id})"
+                                ng-class="{'gmd-invisible' : selectedValues.length == 0}">
+                                <span>Editar</span>
+                                <i class="material-icons gmd-ripple">edit</i>
+                            </li>
+                            <li class="btn-primary"
+                                ui-sref="gasnozzle.insert"
+                                ng-class="{'gmd-invisible' : selectedValues.length == 0}">
+                                <span>Novo</span>
+                                <i class="material-icons gmd-ripple">add</i>
+                            </li>
+                        </ul>
+                    </gmd-fab>
                 </div>
             </div>
         </div>

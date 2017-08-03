@@ -1,15 +1,21 @@
-angular.module('app.gaspump', ['ui.router', 'app.gaspump.controllers', 'app.gaspump.services','api.location'])
+require('./controllers/module');
+require('./services/module');
+
+let list = require('./views/list.html');
+let form = require('./views/form.html');
+
+module.exports = angular.module('app.gaspump', ['ui.router', 'app.gaspump.controllers', 'app.gaspump.services', 'api.location'])
     .config(['$stateProvider', 'apiLocation', function ($stateProvider, apiLocation) {
         $stateProvider
             .state('gaspump.list', {
                 url: '/list',
-                templateUrl: 'modules/gaspump/views/list.html',
+                templateUrl: list,
                 controller: 'GasPumpListController',
                 data: {id: 2}
             })
             .state('gaspump.insert', {
                 url: '/insert',
-                templateUrl: 'modules/gaspump/views/form.html',
+                templateUrl: form,
                 controller: 'GasPumpFormController',
                 controllerAs: 'form',
                 data: {id: 3}, resolve: {
@@ -21,7 +27,7 @@ angular.module('app.gaspump', ['ui.router', 'app.gaspump.controllers', 'app.gasp
             })
             .state('gaspump.edit', {
                 url: '/edit/:id',
-                templateUrl: 'modules/gaspump/views/form.html',
+                templateUrl: form,
                 controller: 'GasPumpFormController',
                 data: {id: 3}, resolve: {
                     entity: ['$stateParams', '$http', function ($stateParams, $http) {

@@ -1,38 +1,62 @@
 <form name="pumpform" novalidate gumga-form>
     <div class="row">
         <div class="col-lg-12 m-t-lg">
-            <div class="ibox float-e-margins">
-                <div class="ibox-content">
-                    <div class="row">
-                        <div class="col-md-4 m-t-lg">
 
-                            <gmd-input>
-                                <input type="text" class="form-control gmd" ng-model="entity.name" id="name" required
-                                       autocomplete="off">
-                                <span class="bar"></span>
-                                <label for="name" class="control-label">Nome da Bomba</label>
-                            </gmd-input>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-4">
+                    <div class="ibox float-e-margins">
+                        <div class="panel gmd">
+                            <div class="panel-heading">Cadastro de Bomba
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <gmd-input>
+                                            <input type="text" class="form-control gmd" ng-model="entity.name" id="name" required
+                                                   autocomplete="off">
+                                            <span class="bar"></span>
+                                            <label for="name" class="control-label">Nome da Bomba</label>
+                                        </gmd-input>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <gmd-input>
+                                            <input type="text" class="form-control gmd" ng-model="entity.number" id="number"
+                                                   required autocomplete="off">
+                                            <span class="bar"></span>
+                                            <label for="number" class="control-label">Número da Bomba</label>
+                                        </gmd-input>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <gmd-input>
-                                <input type="text" class="form-control gmd" ng-model="entity.number" id="number"
-                                       required autocomplete="off">
-                                <span class="bar"></span>
-                                <label for="number" class="control-label">Número da Bomba</label>
-                            </gmd-input>
-                        </div>
-                    </div>
-
                 </div>
             </div>
             <div class="row">
-                <div class=" col-md-9 pull-right">
-                    <button type="button" grands-button="return" ui-sref="gaspump.list"></button>
-                    <button type="button" grands-button="save" ng-click="update(entity)"
-                            ng-disabled="blockBtnSave(entity)"></button>
-                </div>
+                <!--<div class=" col-md-9 pull-right">-->
+                    <!--<button type="button" grands-button="return" ui-sref="gaspump.list"></button>-->
+                    <!--<button type="button" grands-button="save" ng-click="update(entity)"-->
+                            <!--ng-disabled="blockBtnSave(entity)"></button>-->
+                <!--</div>-->
+
+                <gmd-fab force-click="false" fixed opened="!fabs">
+                    <button class="bg-accent gmd-ripple"
+                            type="button"
+                            ng-class="{ 'gmd-disabled' : blockBtnSave(entity) }"
+                            ng-click="update(entity, blockBtnSave(entity))">
+                        <span class="material-icons">check</span>
+                    </button>
+                    <ul>
+                        <li class="bg-primary" ui-sref="gaspump.list">
+                            <span>Voltar</span>
+                            <i class="material-icons gmd-ripple">keyboard_backspace</i>
+                        </li>
+                    </ul>
+                </gmd-fab>
             </div>
         </div>
 
