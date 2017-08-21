@@ -1,6 +1,6 @@
 require('./import-modules');
 
-let base = require('./baseGasStation.html');
+let base = '/baseGrandsComponents.html';
 module.exports = angular.module('gas.core', [
     'ui.router',
     'ngSanitize',
